@@ -15,7 +15,7 @@ COPY nginx.repo /etc/yum.repos.d/
 RUN yum -y install pcre-devel zlib-devel openssl-devel nginx 
 
 COPY nginx.conf /etc/nginx/
-COPY www.conf /etc/nginx/conf.d
+COPY www.conf /etc/nginx/
 
 # Define working directory.
 WORKDIR /etc/nginx
