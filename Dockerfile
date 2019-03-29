@@ -11,11 +11,12 @@ COPY nginx.repo /etc/yum.repos.d/
 COPY nginx.conf /etc/nginx/
 COPY www.conf /etc/nginx/conf.d/
 # Define mountable directories.
-VOLUME ["/etc/nginx/conf.d/","/var/log/nginx", "/var/www/html"]
 
+VOLUME ["/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 # Install Nginx.
 RUN \
-yum -y install pcre-devel zlib-devel openssl-devel nginx && \
+yum -y install pcre-devel zlib-devel openssl-devel nginx
+
 COPY nginx.conf /etc/nginx/
 COPY www.conf /etc/nginx/conf.d
 
