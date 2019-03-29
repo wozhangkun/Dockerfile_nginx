@@ -14,7 +14,7 @@ VOLUME ["/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/htm
 
 # Install Nginx.
 RUN \
-cat > /etc/yum.repos.d/nginx.repo << EOF 
+cat > /etc/yum.repos.d/nginx.repo << 'EOF' 
 [nginx-stable]
 name=nginx stable repo
 baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
@@ -23,7 +23,7 @@ enabled=1
 gpgkey=https://nginx.org/keys/nginx_signing.key
 EOF && \
 yum -y install pcre-devel zlib-devel openssl-devel nginx && \
-cat > /etc/nginx/nginx.conf << EOF
+cat > /etc/nginx/nginx.conf << 'EOF'
 user nginx;
 worker_processes  10;
 
@@ -75,7 +75,7 @@ http {
     include /etc/nginx/conf.d/*.conf;
 }
 EOF && \
-cat > /etc/nginx/www.conf << EOF
+cat > /etc/nginx/www.conf << 'EOF'
 server {
         listen       80;
         server_name www.abc.com;
