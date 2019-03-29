@@ -21,7 +21,8 @@ baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
 gpgcheck=1
 enabled=1
 gpgkey=https://nginx.org/keys/nginx_signing.key
-EOF && \
+EOF
+&& \
 yum -y install pcre-devel zlib-devel openssl-devel nginx && \
 cat > /etc/nginx/nginx.conf << 'EOF'
 user nginx;
@@ -74,7 +75,8 @@ http {
     keepalive_requests 1000;
     include /etc/nginx/conf.d/*.conf;
 }
-EOF && \
+EOF
+&& \
 cat > /etc/nginx/www.conf << 'EOF'
 server {
         listen       80;
