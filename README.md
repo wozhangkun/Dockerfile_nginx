@@ -3,7 +3,7 @@ docker build -t wozhangkun/nginx .
 docker run -d --name nginx --link php-fpm7.0.33_yulian:php-fpm7.0.33 --link php-fpm7.1.27_yulian:php-fpm7.1.27 --restart=unless-stopped -v /etc/nginx/conf.d:/etc/nginx/conf.d -v /etc/nginx/certs:/etc/nginx/certs -v /var/www/html:/var/www/html -v /var/log/nginx:/var/log/nginx -p 80:80 -p 443:443 wozhangkun/nginx                                                                 
 
 docker cp nginx:/etc/nginx/www.conf /etc/nginx/conf.d/                                    
-nginx config:                                      
+nginx config:  （注意root，fastcgi_pass配置）                                    
 
 server {                                                                            
 ......                                                                         
