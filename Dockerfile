@@ -13,7 +13,7 @@ VOLUME ["/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/htm
 # Install Nginx.
 COPY nginx.repo /etc/yum.repos.d/
 RUN yum -y install pcre-devel zlib-devel openssl-devel nginx \
-    && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 COPY nginx.conf /etc/nginx/
 COPY default.conf /etc/nginx/
