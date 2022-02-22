@@ -20,6 +20,7 @@ COPY default.conf /etc/nginx/
 
 # Define working directory.
 WORKDIR /etc/nginx
+USER nginx:nginx
 
 # Define default command.
 CMD ["nginx"]
